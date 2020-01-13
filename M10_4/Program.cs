@@ -10,26 +10,31 @@ namespace M10_4
     {
         static void Main(string[] args)
         {
-            List<int> list = new List<int>();
-            list.AddToQue<Int32>(1);
-            list.AddToQue<Int32>(2);
-            list.AddToQue<Int32>(3);
-            list.AddToQue<Int32>(4);
+            CustomQueue customQueue = new CustomQueue();
+            customQueue.Add("1");
+            customQueue.Add(2);
+            customQueue.Add(3);
+            Iterator iterator = customQueue.CreateIterator();
+            Console.WriteLine("Elements in queue:");
 
-            foreach (var item in list)
+            while (iterator.Next())
             {
-                Console.WriteLine(item);
+                var item = iterator.Current;
+                Console.Write(item + " ");
             }
 
-            Console.WriteLine("Pick:"+list.PickFirstQue());
-            List<string> listStr = new List<string>();
-            listStr.AddToQue<string>("hi");
+            Console.WriteLine("\nPick:" + customQueue.PickFirstQue());
+            Console.WriteLine("Deleted element of queue:" + customQueue.DeleteFromQue());
+            Iterator queIterator = customQueue.CreateIterator();
+            Console.WriteLine("Elements after deleting from queue:");
 
-            foreach (var item in listStr)
+            while (queIterator.Next())
             {
-                Console.WriteLine(item);
+                var item = queIterator.Current;
+                Console.Write(item + " ");
             }
 
+          
             Console.ReadKey();
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,43 @@ using System.Threading.Tasks;
 
 namespace M10_4
 {
-    public static class CustomQueue
-    {        
-        public static void AddToQue<T>(this List<T> list, T item)
+    public class CustomQueue : Aggregate
+    {
+        private List<object> items = new List<object>();
+
+        public void Add(object o)
         {
-            list.Add(item);
+            items.Add(o);
         }
 
-        public static T PickFirstQue<T>(this List<T> list)
+        public object PickFirstQue()
         {
-            var first = list.First();
+            var first = items.First();
             return first;
         }
+
+        public object DeleteFromQue()
+        {
+            var first = PickFirstQue();
+            items.Remove(first);
+
+            return first;
+        }
+
+        public Iterator CreateIterator()
+        {
+            return new ConcreteIterator(this);
+        }
+
+        public object this[int index]
+        {
+            get { return items[index]; }
+        }
+
+        public int Count
+        {
+            get { return items.Count; }
+        }
+
     }
 }

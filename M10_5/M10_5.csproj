@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5031D821-DAAB-46EB-BCAE-B58E924BBEF6}</ProjectGuid>
+    <ProjectGuid>{FCFB7C42-8B0B-4CBF-B585-E082F2FFCC62}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>M10_4</RootNamespace>
-    <AssemblyName>M10_4</AssemblyName>
+    <RootNamespace>M10_5</RootNamespace>
+    <AssemblyName>M10_5</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
     <Compile Include="ConcreteIterator.cs" />
-    <Compile Include="CustomQueue.cs" />
+    <Compile Include="CustomStack.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
