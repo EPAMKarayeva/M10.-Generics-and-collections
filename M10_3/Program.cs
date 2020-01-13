@@ -16,8 +16,15 @@ namespace M10_3
             var fibRow = fibonacci.CountNumbers(n);
 
             foreach (int item in fibRow)
-            {
-                Console.Write(item + " ");
+            {   if (item > 0)
+                {
+                    Console.Write(item + " ");
+                }
+                else
+                {
+                    Console.WriteLine("Limit");
+                    break;
+                }
             }
 
             Console.ReadKey();

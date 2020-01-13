@@ -12,27 +12,27 @@ namespace M10
         {
             int first = 0;
             int last = array.Length - 1;
-            int middle = last / 2;
+            int middle = 0;
 
             while (last >= first)
             {
-                var compareResult = ((IComparable)(middle)).CompareTo(item);
+                middle = (first+last)/2;
+                T midValue = array[middle];
+
+                var compareResult = ((IComparable)(midValue)).CompareTo(item);
 
                 if (compareResult == 0)
                 {
                     return true;
                 }
-
-                if(compareResult > 0)
+                else if (compareResult >0)
                 {
-                    last = middle - 1;
+                    last = middle -1;
                 }
                 else
                 {
-                    first = middle+1;
+                    first= middle + 1;
                 }
-
-                middle = first + ((last - first)/2); 
             }
 
             return false;

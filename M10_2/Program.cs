@@ -10,7 +10,7 @@ namespace M10_2
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\Aziza_Karayeva\source\repos\M10\M10_2\Test.txt";
+            string path = @"Test.txt";
 
             FileReading file = new FileReading();
             Console.WriteLine("Count of words:"+file.ReadFile(path));
