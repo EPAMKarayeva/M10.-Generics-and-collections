@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace M10_5
 {
-    class CustomStack : IAggregate
+    public class CustomStack : IAggregate
     {
         private List<object> items = new List<object>();
 

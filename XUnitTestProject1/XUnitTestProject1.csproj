@@ -17,6 +17,7 @@
     <ProjectReference Include="..\M10_2\M10_2.csproj" />
     <ProjectReference Include="..\M10_3\M10_3.csproj" />
     <ProjectReference Include="..\M10_4\M10_4.csproj" />
+    <ProjectReference Include="..\M10_5\M10_5.csproj" />
   </ItemGroup>
 
 </Project>
