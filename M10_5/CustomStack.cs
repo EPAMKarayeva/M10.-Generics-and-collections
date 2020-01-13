@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace M10_5
 {
-    class CustomStack : Aggregate
+    class CustomStack : IAggregate
     {
         private List<object> items = new List<object>();
 
@@ -49,7 +49,7 @@ namespace M10_5
             return collection;
         }
 
-        public Iterator CreateIterator()
+        public IIterator CreateIterator()
         {
             return new ConcreteIterator(this);
         }

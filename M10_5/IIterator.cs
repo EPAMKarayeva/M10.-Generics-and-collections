@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace M10_5
 {
-    public interface Aggregate
+    public interface IIterator
     {
-        Iterator CreateIterator();
+        object Current { get; }
+        bool Next();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace M10_5
 {
-    class ConcreteIterator : Iterator
+    class ConcreteIterator : IIterator
     {
         private CustomStack aggregate;
         int index;

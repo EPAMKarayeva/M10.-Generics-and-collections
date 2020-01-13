@@ -14,7 +14,7 @@ namespace M10_4
             customQueue.Add("1");
             customQueue.Add(2);
             customQueue.Add(3);
-            Iterator iterator = customQueue.CreateIterator();
+            IIterator iterator = customQueue.CreateIterator();
             Console.WriteLine("Elements in queue:");
 
             while (iterator.Next())
@@ -25,7 +25,7 @@ namespace M10_4
 
             Console.WriteLine("\nPick:" + customQueue.PickFirstQue());
             Console.WriteLine("Deleted element of queue:" + customQueue.DeleteFromQue());
-            Iterator queIterator = customQueue.CreateIterator();
+            IIterator queIterator = customQueue.CreateIterator();
             Console.WriteLine("Elements after deleting from queue:");
 
             while (queIterator.Next())

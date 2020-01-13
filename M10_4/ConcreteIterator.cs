@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace M10_4
 {
-    class ConcreteIterator : Iterator
+    class ConcreteIterator : IIterator
     {
         private CustomQueue aggregate;
         int index;

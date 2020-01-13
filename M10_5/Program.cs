@@ -14,7 +14,7 @@ namespace M10_5
             customStack.Push(1);
             customStack.Push(2);
             customStack.Push(3);
-            Iterator iterator = customStack.CreateIterator();
+            IIterator iterator = customStack.CreateIterator();
             Console.WriteLine("Elements in stack:");
 
             while (iterator.Next())
@@ -25,7 +25,7 @@ namespace M10_5
 
             Console.WriteLine("\nPick:" + customStack.Pick());
             Console.WriteLine("Deleted element of stack:" + customStack.Pop());
-            Iterator stackIterator = customStack.CreateIterator();
+            IIterator stackIterator = customStack.CreateIterator();
             Console.WriteLine("Elements after deleting from stack:");
 
             while (stackIterator.Next())

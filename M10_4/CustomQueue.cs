@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace M10_4
 {
-    public class CustomQueue : Aggregate
+    public class CustomQueue : IAggregate
     {
         private List<object> items = new List<object>();
 
@@ -30,7 +30,7 @@ namespace M10_4
             return first;
         }
 
-        public Iterator CreateIterator()
+        public IIterator CreateIterator()
         {
             return new ConcreteIterator(this);
         }

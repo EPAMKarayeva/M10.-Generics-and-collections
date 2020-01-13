@@ -42,10 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aggregate.cs" />
+    <Compile Include="IAggregate.cs" />
     <Compile Include="ConcreteIterator.cs" />
     <Compile Include="CustomStack.cs" />
-    <Compile Include="Iterator.cs" />
+    <Compile Include="IIterator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
