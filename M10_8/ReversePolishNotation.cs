@@ -117,14 +117,55 @@ namespace M10_8
                 }
             }
 
-           
+ 
             Console.WriteLine("\nAfter:");
 
             foreach(var item in array)
             {
                 Console.Write(item + "");
             }
-        }
+
+            List<string> tmpArray = new List<string>();
+
+
+            foreach (var item in array)
+            {
+                switch (item)
+                {
+                    case "+":
+                        tmpArray[tmpArray.Count - 2] = tmpArray.ElementAt(tmpArray.Count - 2) + tmpArray.ElementAt(tmpArray.Count - 1);
+                        // TODO: remove last
+                        break;
+
+                    case "-":
+
+                        break;
+                    case "*":
+
+                        break;
+                    case "/":
+                       
+
+                        break;
+                    default:
+                        tmpArray.Add(item);
+                        break;
+                }
+            }
+
+                //foreach (var item in array)
+                //{
+                //    switch (item)
+                //    {
+                //        case '+':
+                //            resultNumber +
+                //        break;
+                //        default:
+                //    }
+                //}
+
+
+            }
 
       
     }
