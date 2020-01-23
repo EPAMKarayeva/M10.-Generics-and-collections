@@ -17,41 +17,19 @@ namespace M10_8
             {
                 if (array[i] == "+" || array[i] == "-" || array[i] == "*" || array[i] == "/")
                 {
-                    var result = CheckPriorities(symbolList, array[i]);
+                    var result = CheckPriorities(symbolList, array[i], listOfOperations);
 
                     if (result == 1)
                     {
-                        listOfOperands.Add(symbolList[0]);
-                        
-                        var last = listOfOperations.Last();
-
-                        if (last == ")" || last == "(")
-                        {
-
-                            listOfOperations.Remove(listOfOperations[listOfOperations.Count - 2]);
-                        }
-                        else
-                        {
-                            listOfOperations.Remove(last);
-                        }
-
-                        listOfOperations.Add(array[i]);
-                        symbolList.Remove(symbolList[0]);
-                    }
-                    else
-                    {
-                        listOfOperations.Add(array[i]);
-                        if (symbolList.Count > 1)
-                        {
-                            symbolList.Remove(symbolList[0]);
-                        }
+                        listOfOperands.Add(listOfOperations[listOfOperations.Count - 2]);
+                        listOfOperations.RemoveAt(listOfOperations.Count - 2);
                     }
                 }
                 else
                 {
                     listOfOperands.Add(array[i]);
                 }
-                if (array[i] == "(")
+                 if (array[i] == "(")
                 {
                     listOfOperations.Add(array[i]);
                     first = listOfOperations.IndexOf(array[i]);
@@ -68,30 +46,30 @@ namespace M10_8
             RemoveBrackets(listOfOperations);
         }
 
-        public int CheckPriorities(List<string> symbolList, string str)
+        public int CheckPriorities(List<string> symbolList, string str, List<string> list)
         {
 
-            symbolList.Add(str);
+            list.Add(str);
 
-            if (symbolList.Count > 1)
+            if (list.Count >= 2)
             {
 
-                if (symbolList[1] == "+" && (symbolList[0] == "-" || symbolList[0] == "+" || symbolList[0]=="*" || symbolList[0] == "/"))
+                if (list[list.Count-1] == "+" && (list[list.Count - 2] == "-" || list[list.Count - 2] == "+" || list[list.Count - 2] =="*" || list[list.Count - 2] == "/"))
                 {
                     return 1;
                 }
 
-                if (symbolList[1] == "-" && (symbolList[0] == "-" || symbolList[0] == "+" || symbolList[0] == "*" || symbolList[0] == "/"))
+                if (list[list.Count - 1] == "-" && (list[list.Count - 2] == "-" || list[list.Count - 2] == "+" || list[list.Count - 2] == "*" || list[list.Count - 2] == "/"))
                 {
                     return 1;
                 }
 
-                if (symbolList[1] == "*" && (symbolList[0] == "/" || symbolList[0] == "*"))
+                if (list[list.Count - 1] == "*" && (list[list.Count - 2] == "/" || list[list.Count - 2] == "*"))
                 {
                     return 1;
                 }
 
-                if (symbolList[1] == "/" && (symbolList[0] == "/" || symbolList[1] == "*"))
+                if (list[list.Count - 1] == "/" && (list[list.Count - 2] == "/" || list[list.Count - 2] == "*"))
                 {
                     return 1;
                 }
@@ -157,7 +135,7 @@ namespace M10_8
                 {
                     case "+":
                         tmpArray[tmpArray.Count - 2] = tmpArray.ElementAt(tmpArray.Count - 2) + tmpArray.ElementAt(tmpArray.Count - 1);
-                        // TODO: remove last
+                        tmpArray.RemoveAt(tmpArray.Count - 1);
                         break;
 
                     case "-":
