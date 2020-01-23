@@ -17,11 +17,25 @@ namespace M10_8
             {
                 if (array[i] == "+" || array[i] == "-" || array[i] == "*" || array[i] == "/")
                 {
-                    var result = CheckPriorities(symbolList, array[i], i);
+                    var result = CheckPriorities(symbolList, array[i]);
 
                     if (result == 1)
                     {
-                        listOfOperands.Add(array[i]);
+                        listOfOperands.Add(symbolList[0]);
+                        
+                        var last = listOfOperations.Last();
+
+                        if (last == ")" || last == "(")
+                        {
+
+                            listOfOperations.Remove(listOfOperations[listOfOperations.Count - 2]);
+                        }
+                        else
+                        {
+                            listOfOperations.Remove(last);
+                        }
+
+                        listOfOperations.Add(array[i]);
                         symbolList.Remove(symbolList[0]);
                     }
                     else
@@ -54,7 +68,7 @@ namespace M10_8
             RemoveBrackets(listOfOperations);
         }
 
-        public int CheckPriorities(List<string> symbolList, string str, int i)
+        public int CheckPriorities(List<string> symbolList, string str)
         {
 
             symbolList.Add(str);
@@ -62,12 +76,12 @@ namespace M10_8
             if (symbolList.Count > 1)
             {
 
-                if (symbolList[1] == "+" && (symbolList[0] == "-" || symbolList[0] == "+"))
+                if (symbolList[1] == "+" && (symbolList[0] == "-" || symbolList[0] == "+" || symbolList[0]=="*" || symbolList[0] == "/"))
                 {
                     return 1;
                 }
 
-                if (symbolList[1] == "-" && (symbolList[0] == "-" || symbolList[0] == "+"))
+                if (symbolList[1] == "-" && (symbolList[0] == "-" || symbolList[0] == "+" || symbolList[0] == "*" || symbolList[0] == "/"))
                 {
                     return 1;
                 }
@@ -100,10 +114,19 @@ namespace M10_8
 
         public void RemoveBrackets(List<string> list)
         {
-            var tmp = list.Find(x => x == "(");
-            list.Remove(tmp);
-            var temp = list.Find(x => x == ")");
-            list.Remove(temp);
+            var tmp = list.FindAll(x => x == "(");
+
+            foreach (var item in tmp)
+            {
+                list.Remove(item);
+            }
+
+            var temp = list.FindAll(x => x == ")");
+
+            foreach (var item in temp)
+            {
+                list.Remove(item);
+            }
         }
 
 
@@ -152,18 +175,6 @@ namespace M10_8
                         break;
                 }
             }
-
-                //foreach (var item in array)
-                //{
-                //    switch (item)
-                //    {
-                //        case '+':
-                //            resultNumber +
-                //        break;
-                //        default:
-                //    }
-                //}
-
 
             }
 
